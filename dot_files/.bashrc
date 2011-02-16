@@ -3,6 +3,9 @@
 # User specific aliases and functions
 export PATH=$PATH
 
+#alias for vim to load using vi
+alias vm='vim'
+
 #alias phpunit='phpunit --bootstrap autoload.php'
 alias phpunit='php -dmemory_limit=100M -dapc.enable_cli=1 -dxdebug.remote_port=9090 -dxdebug.remote_autostart=1 /usr/bin/phpunit --bootstrap autoload.php  --coverage-html=$HOME/public_html/coverage/all'
 
