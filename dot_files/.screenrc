@@ -4,3 +4,5 @@ hardstatus string '%{= 9K}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r} (%{W}%n*%f%t%?(%u
 #Default screens
 screen -t vim_alpha 	0
 screen -t vim_beta  	1
+
+escape ``
