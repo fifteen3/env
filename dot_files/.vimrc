@@ -2,6 +2,11 @@
 " MAIN CUSTOMIZATION FILE
 "
 
+" Single directory where tmp and backups will go
+set backup
+set backupdir=~/.vim/backups
+set directory=~/.vim/tmp
+
 " Enable loading filetype and indentation plugins
 filetype plugin on
 filetype indent on
@@ -37,8 +42,6 @@ set laststatus=2
 " Jump to matching bracket for 2/10th of a second (works with showmatch)
 set matchtime=2
 
-" Don't highlight results of a search
-set nohlsearch
 
 " Enable CTRL-A/CTRL-X to work on octal and hex numbers, as well as characters
 set nrformats=octal,hex,alpha
