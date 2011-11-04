@@ -1,14 +1,7 @@
-MANIFEST_DOT_FILES = dot_files/
-USERNAME = Carlo Costantini
-EMAIL = carlo@carlocostantini.ca
+#!/bin/bash
+MANIFEST_DOT_FILES=dot_files
+INSTALL_DIR=${HOME}
 #overwrite the existing set of dot files
-
 dots: 
-	(cd $(MANIFEST_DOT_FILES); for i in `cat MANIFEST`; do ln -s env/$(MANIFEST_DOT_FILES)$$i ~/$$i; done)
+	@(for i in `ls -A ${MANIFEST_DOT_FILES}`; do echo $$i; if [ -f ${INSTALL_DIR}/$$i ]; then mv ${INSTALL_DIR}/$$i ${INSTALL_DIR}/$$i.bak; fi; if [ -h ${INSTALL_DIR}/$$i ]; then rm ${INSTALL_DIR}/$$i; fi; ln -s env/${MANIFEST_DOT_FILES}/$$i ${INSTALL_DIR}/$$i; done;)
 	@echo Done installing dot files
-gitglobal:
-	git config --global user.name "$(USERNAME)"
-	git config --global user.email $(EMAIL)
-setup:
-	make dots
-	make gitconfig
