@@ -43,12 +43,6 @@ set laststatus=2
 set matchtime=2
 
 
-" Enable CTRL-A/CTRL-X to work on octal and hex numbers, as well as characters
-set nrformats=octal,hex,alpha
-
-" Use F10 to toggle 'paste' mode
-set pastetoggle=<F10>
-
 " Show line, column number, and relative position within a file in the status line
 set ruler
 
@@ -66,9 +60,6 @@ set showcmd
 
 " When a bracket is inserted, briefly jump to a matching one
 set showmatch
-
-" Don't request terminal version string (for xterm)
-set t_RV=
 
 " Use 4 spaces for <Tab> and :retab
 set tabstop=4
@@ -114,32 +105,31 @@ let g:netrw_browse_split = 1
 " MAPPINGS
 "
 
-" save changes
-map ,s :w<CR>
-" exit vim without saving any changes
-map ,q :q!<CR>
-" exit vim saving changes
-map ,w :x<CR>
 " switch to upper/lower window quickly
 map <C-J> <C-W>j
 map <C-K> <C-W>k
-" use CTRL-F for omni completion
-imap <C-F> 
+
 " map CTRL-L to piece-wise copying of the line above the current one
 imap <C-L> a<esc>kywgi<esc>Pla<bs>
+
 " map ,f to display all lines with keyword under cursor and ask which one to
 " jump to
 nmap ,f [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+
 " use <F6> to toggle line numbers
 nmap <silent> <F6> :set number!<CR>
+
 " page down with <Space>
 nmap <Space> <PageDown>
+
 " open filename under cursor in a new window (use current file's working
 " directory) 
 nmap gf :new %:p:h/<cfile><CR>
+
 " map <Alt-p> and <Alt-P> to paste below/above and reformat
 nnoremap <Esc>P  P'[v']=
 nnoremap <Esc>p  p'[v']=
+
 " visual shifting (does not exit Visual mode)
 vnoremap < <gv
 vnoremap > >gv 
@@ -153,20 +143,6 @@ highlight treeDir cterm=none ctermfg=Cyan
 highlight treeUp cterm=none ctermfg=DarkYellow
 highlight treeCWD cterm=none ctermfg=DarkYellow
 highlight netrwDir cterm=none ctermfg=Cyan
-
-" Set up cscope options
-if has("cscope")
-	set csprg=cscope
-	set csto=0
-	set cst
-	set nocsverb
-	cs add cscope.out
-	set csverb
-	map <C-_> :cstag <C-R>=expand("<cword>")<CR><CR>
-	map g<C-]> :cs find 3 <C-R>=expand("<cword>")<CR><CR>
-	map g<C-\> :cs find 0 <C-R>=expand("<cword>")<CR><CR>
-endif
-
 
 " Set the <Leader> for combo commands
 let mapleader = ","
