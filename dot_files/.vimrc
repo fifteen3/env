@@ -73,6 +73,12 @@ set t_RV=
 " Use 4 spaces for <Tab> and :retab
 set tabstop=4
 
+" Use smart indent
+set smartindent
+
+" Use expandtab
+set expandtab
+
 " Write swap file to disk after every 50 characters
 set updatecount=50
 
