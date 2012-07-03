@@ -2,17 +2,19 @@
 " MAIN CUSTOMIZATION FILE
 "
 
+call pathogen#infect()
+
 " Single directory where tmp and backups will go
 set backup
 set backupdir=~/.vim/backups
 set directory=~/.vim/tmp
 
-" Enable loading filetype and indentation plugins
-filetype plugin on
-filetype indent on
 
 " Turn syntax highlighting on
 syntax on
+
+" Enable loading filetype and indentation plugins
+filetype plugin indent on
 
 "
 " GLOBAL SETTINGS
@@ -57,6 +59,12 @@ set shiftwidth=4
 
 " Show (partial) commands (or size of selection in Visual mode) in the status line
 set showcmd
+
+"set a marker that shows the 81 character mark
+set colorcolumn=81
+"highlight current row cursor is on
+set cursorcolumn
+
 
 " When a bracket is inserted, briefly jump to a matching one
 set showmatch
@@ -149,6 +157,7 @@ highlight treeDir cterm=none ctermfg=Cyan
 highlight treeUp cterm=none ctermfg=DarkYellow
 highlight treeCWD cterm=none ctermfg=DarkYellow
 highlight netrwDir cterm=none ctermfg=Cyan
+highlight LineNr ctermfg=lightgrey ctermbg=darkgrey
 
 " Set the <Leader> for combo commands
 let mapleader = ","
