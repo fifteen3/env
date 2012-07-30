@@ -62,9 +62,6 @@ set showcmd
 
 "set a marker that shows the 81 character mark
 set colorcolumn=81
-"highlight current row cursor is on
-set cursorcolumn
-
 
 " When a bracket is inserted, briefly jump to a matching one
 set showmatch
@@ -161,3 +158,14 @@ highlight LineNr ctermfg=lightgrey ctermbg=darkgrey
 
 " Set the <Leader> for combo commands
 let mapleader = ","
+
+" Disable the arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
