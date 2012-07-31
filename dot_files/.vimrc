@@ -85,7 +85,7 @@ set wildignore+=*.o,*.obj,*.pyc,.git
 "
 " '20  - remember marks for 20 previous files
 " \"50 - save 50 lines for each register
-" :20  - remember 20 items in command-line history 
+" :20  - remember 20 items in command-line history
 " %    - remember the buffer list (if vim started without a file arg)
 " n    - set name of viminfo file
 set viminfo='20,\"50,:20,%,n~/.viminfo
@@ -105,6 +105,9 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")|execute("normal 
 " Automtically leave insert mode after 'updatetime'
 " care of 1tw on hackernews with spelling corrections
 au CursorHoldI * stopinsert
+
+"Remove trailing white space after leaving insert mode
+autocmd BufWritePre *.pl,*.py,*.php,*.js,*.html,*.vimrc :%s/\s\+$//e
 
 " Fix my <Backspace> key (in Mac OS X Terminal)
 set t_kb=
@@ -136,7 +139,7 @@ nmap <silent> <F6> :set number!<CR>
 nmap <Space> <PageDown>
 
 " open filename under cursor in a new window (use current file's working
-" directory) 
+" directory)
 nmap gf :new %:p:h/<cfile><CR>
 
 " map <Alt-p> and <Alt-P> to paste below/above and reformat
@@ -145,7 +148,7 @@ nnoremap <Esc>p  p'[v']=
 
 " visual shifting (does not exit Visual mode)
 vnoremap < <gv
-vnoremap > >gv 
+vnoremap > >gv
 
 " Generic highlight changes
 highlight Comment cterm=none ctermfg=Gray
