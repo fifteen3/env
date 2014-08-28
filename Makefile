@@ -13,6 +13,6 @@ vim-backups:
 vim-pathogen:
 	mkdir -p ${INSTALL_DIR}/.vim/autoload ~/.vim/bundle; \
 	curl -so ${INSTALL_DIR}/.vim/autoload/pathogen.vim \
-	https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+	https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
 all: dots vim-backups vim-pathogen
