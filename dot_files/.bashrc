@@ -10,9 +10,29 @@ fi
 export EDITOR=vim
 
 #gitprompt
-export PS0='\[\e[0;36m\]\t\[\e[0m\] \[\e[0;33m\]\u@\[\e[0m\]\[\e[0;31m\]\h\[\e[0m\] {\[\e[1;33m\]\w\[\e[0m\]}\[\e[0;36m\]%{(%b)[%u%c%f%t\[\e[0;36m\]]%}\[\e[0m\]$'
-#export PROMPT_COMMAND=$PROMPT_COMMAND';export PS1=$(gitprompt.pl statuscount=1 u=%[%e[31m%] c=%[%e[32m%] f=%[%e[1\;37m%])'
-export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:/Applications/VMware\ Fusion.app/Contents/Library"
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWUPSTREAM=1
+source ~/.git-prompt.sh
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "> "'  
+
+
+source ~/perl5/perlbrew/etc/bashrc
+# environment variables for PostgreSQL
+
+# export PGHOST=localhost
+if [[ -d /Applications/Postgres.app ]]; then
+  export POSTGRES_HOME=/Applications/Postgres.app/Contents/MacOS
+elif [[ -e /usr/local/bin/postgres ]]; then
+  export POSTGRES_HOME=/usr/local
+elif [[ -e /usr/local/pgsql/bin/postgres ]]; then
+  export POSTGRES_HOME=/usr/local/pgsql
+fi
+
+if [[ -n "$POSTGRES_HOME" ]]; then
+  if [[ -d $POSTGRES_HOME/bin ]]; then
+    export PATH=$POSTGRES_HOME/bin:$PATH
+  fi
+fi
+
