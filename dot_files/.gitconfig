@@ -1,3 +1,5 @@
 [user]
-	name  = Carlo Costantini
+	name = Carlo Costantini
 	email = carlo@carlocostantini.ca
+[color]
+	ui = auto
