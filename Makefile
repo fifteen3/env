@@ -15,4 +15,7 @@ vim-pathogen:
 	curl -so ${INSTALL_DIR}/.vim/autoload/pathogen.vim \
 	https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
+vim-syntastic:
+	cd ${INSTALL_DIR}/.vim/bundle/ && git clone https://github.com/scrooloose/syntastic.git
+
 all: dots vim-backups vim-pathogen
