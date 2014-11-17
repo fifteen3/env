@@ -60,9 +60,6 @@ set shiftwidth=4
 " Show (partial) commands (or size of selection in Visual mode) in the status line
 set showcmd
 
-"set a marker that shows the 81 character mark
-set colorcolumn=81
-
 " When a bracket is inserted, briefly jump to a matching one
 set showmatch
 
