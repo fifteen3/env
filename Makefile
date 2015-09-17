@@ -2,7 +2,7 @@
 MANIFEST_DOT_FILES=dot_files
 INSTALL_DIR=${HOME}
 #overwrite the existing set of dot files
-dots: 
+dots:
 	@(for i in `ls -A ${MANIFEST_DOT_FILES}`; do echo $$i; if [ -f ${INSTALL_DIR}/$$i ]; then mv ${INSTALL_DIR}/$$i ${INSTALL_DIR}/$$i.bak; fi; if [ -h ${INSTALL_DIR}/$$i ]; then rm ${INSTALL_DIR}/$$i; fi; ln -s env/${MANIFEST_DOT_FILES}/$$i ${INSTALL_DIR}/$$i; done;)
 	@echo Done installing dot files
 
@@ -16,6 +16,8 @@ vim-pathogen:
 	https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
 vim-syntastic:
-	cd ${INSTALL_DIR}/.vim/bundle/ && git clone https://github.com/scrooloose/syntastic.git
+	git clone https://github.com/scrooloose/syntastic.git ${INSTALL_DIR}/.vim/bundle/
 
-all: dots vim-backups vim-pathogen
+vim-airline:
+	git clone https://github.com/bling/vim-airline ${INSTALL_DIR}/.vim/bundle/vim-airline
+all: dots vim-backups vim-pathogen vim-syntastic vim-airline
