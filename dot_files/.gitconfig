@@ -3,3 +3,5 @@
 	email = carlo@carlocostantini.ca
 [color]
 	ui = auto
+[push]
+	default = simple
